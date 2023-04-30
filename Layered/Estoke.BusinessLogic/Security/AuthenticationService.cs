@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Estoke.BusinessLogic.UserManagement;
+using Estoke.Domain;
+using Estoke.Infrastructure.SessionManagement;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +14,19 @@ namespace Estoke.BusinessLogic.Security
     /// </summary>
     public class AuthenticationService : IDisposable
     {
+        #region Attributes Privates
+        private static readonly AuthenticationService instance = new AuthenticationService();
+        private SessionManager sessionManager;
+        #endregion
+
+        #region Constructs
+        private AuthenticationService() 
+        {
+            this.sessionManager = SessionManager.Instance;
+        } 
+        #endregion
+
+        #region Methods
         /// <summary>
         /// Verifies if the provided login credentials are valid and authenticates the user in the system.
         /// </summary>
@@ -19,10 +35,16 @@ namespace Estoke.BusinessLogic.Security
         /// <returns>True if the credentials are valid and the user is successfully authenticated, False otherwise.</returns>
         public bool Authenticate(string username, string password)
         {
-            // Implementation of user authentication
-            return false;
+            using(UserService userService = UserService.Instance)
+            {
+                User user = userService.GetUserByUsername(username);
+                if(user?.Password == password)
+                {
+                    this.sessionManager.CreateSession(user);
+                    return true;
+                }
+            }
         }
-
         /// <summary>
         /// Ends the session of an authenticated user in the system.
         /// </summary>
@@ -30,8 +52,12 @@ namespace Estoke.BusinessLogic.Security
         {
             // Implementation of user logout
         }
-
         public void Dispose() => GC.SuppressFinalize(this);
+        #endregion
+
+        #region Properties
+        public static AuthenticationService Instance { get { return instance; } }
+        #endregion
     }
 
 }
