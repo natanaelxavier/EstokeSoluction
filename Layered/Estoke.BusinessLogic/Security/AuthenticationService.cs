@@ -33,15 +33,19 @@ namespace Estoke.BusinessLogic.Security
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         /// <returns>True if the credentials are valid and the user is successfully authenticated, False otherwise.</returns>
-        public bool Authenticate(string username, string password)
+        public bool Authenticate(string email, string password)
         {
             using(UserService userService = UserService.Instance)
             {
-                User user = userService.GetUserByUsername(username);
+                User user = userService.GetUserByEmail(email);
                 if(user?.Password == password)
                 {
                     this.sessionManager.CreateSession(user);
                     return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
         }

@@ -73,6 +73,18 @@ namespace Estoke.BusinessLogic.UserManagement
             // Implementation of user retrieval by username
             return null;
         }
+       
+        /// <summary>
+        /// Retrieves a user from the system with the specified email address.
+        /// </summary>
+        /// <param name="email">The email address of the user to retrieve.</param>
+        /// <returns>The user with the specified email address, or null if no user was found.</returns>
+        public User GetUserByEmail(string email)
+        {
+            // Implementation of retrieving a user by email
+            return null;
+        }
+
 
         /// <summary>
         /// Gets a list of all users in the system.
