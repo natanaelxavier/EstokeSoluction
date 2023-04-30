@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estoke.BusinessLogic", "Lay
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estoke.DataAccess", "Layered\Estoke.DataAccess\Estoke.DataAccess.csproj", "{D9EDD675-5C70-4136-AA2C-CDEFE137A8C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estoke.Domain", "Layered\Estoke.Domain\Estoke.Domain.csproj", "{FC31104A-2FA1-4E22-947E-728578244B38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D9EDD675-5C70-4136-AA2C-CDEFE137A8C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9EDD675-5C70-4136-AA2C-CDEFE137A8C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9EDD675-5C70-4136-AA2C-CDEFE137A8C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC31104A-2FA1-4E22-947E-728578244B38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC31104A-2FA1-4E22-947E-728578244B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC31104A-2FA1-4E22-947E-728578244B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC31104A-2FA1-4E22-947E-728578244B38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
