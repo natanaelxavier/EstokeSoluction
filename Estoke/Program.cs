@@ -16,7 +16,10 @@ namespace Estoke
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Apresentation.LoginForm());
+            if(new Apresentation.LoginForm().ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new Apresentation.HomeForm());
+            }
         }
     }
 }

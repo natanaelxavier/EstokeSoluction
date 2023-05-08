@@ -82,7 +82,14 @@ namespace Estoke.BusinessLogic.UserManagement
         public User GetUserByEmail(string email)
         {
             // Implementation of retrieving a user by email
-            return null;
+            return new User
+            {
+                Email = email,
+                Name = "Conta Teste",
+                IsActived = true,
+                CreatedAt = DateTime.Now,
+                Password = "1231546"
+            };
         }
 
 
