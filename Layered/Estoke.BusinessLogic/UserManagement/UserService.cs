@@ -1,4 +1,5 @@
-﻿using Estoke.Domain;
+﻿using Estoke.DataAccess;
+using Estoke.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Estoke.BusinessLogic.UserManagement
         #endregion
 
         #region Constructs
-        private UserService() { }
+        private UserService() {}
         #endregion
 
         #region Properties
@@ -81,17 +82,12 @@ namespace Estoke.BusinessLogic.UserManagement
         /// <returns>The user with the specified email address, or null if no user was found.</returns>
         public User GetUserByEmail(string email)
         {
-            // Implementation of retrieving a user by email
-            return new User
+            using(var context = new UserContext())
             {
-                Email = email,
-                Name = "Conta Teste",
-                IsActived = true,
-                CreatedAt = DateTime.Now,
-                Password = "1231546"
-            };
+                var user = context.Usuarios.FirstOrDefault(u => u.Email == email);
+                return user ?? throw new Exception("User not working!");
+            }
         }
-
 
         /// <summary>
         /// Gets a list of all users in the system.
@@ -99,8 +95,10 @@ namespace Estoke.BusinessLogic.UserManagement
         /// <returns>The list of all users in the system.</returns>
         public List<User> GetAllUsers()
         {
-            // Implementation of retrieval of all users
-            return null;
+            using(var context = new UserContext())
+            {
+                return context.Usuarios.ToList();
+            }
         }
         public void Dispose() => GC.SuppressFinalize(this);
         #endregion

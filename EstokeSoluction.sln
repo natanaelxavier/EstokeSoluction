@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estoke", "Estoke\Estoke.csproj", "{12EC936F-F7B5-4179-B986-F96331F48111}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D9EDD675-5C70-4136-AA2C-CDEFE137A8C3} = {D9EDD675-5C70-4136-AA2C-CDEFE137A8C3}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estoke.Apresentation", "Layered\Estoke.Apresentation\Estoke.Apresentation.csproj", "{14B6F9EC-F67D-4ED5-8B7C-0DB5398E14CB}"
 EndProject
